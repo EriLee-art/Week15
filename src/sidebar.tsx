@@ -1,8 +1,14 @@
 import Gamelist from "./gamelist"
 import addIcon from "./assets/plus-solid.svg"
 
+type AddedProps = {
+    gameName: {
+        id: number, priority: number, order: number, game: string
+    }[]
+}
+
 // Sidebar for the application
-export default function Sidebar() {
+export default function Sidebar( {gameName}: AddedProps ) {
     return(
         <div className="container-fluid text-center d-flex flex-column">
             
@@ -16,7 +22,7 @@ export default function Sidebar() {
                 <img className="ms-1" style={{ width: "1rem" }} src={addIcon} />
             </button>
             
-            <Gamelist />
+            <Gamelist gameName={gameName}/>
         </div>
     )
 }
