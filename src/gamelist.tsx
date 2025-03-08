@@ -9,28 +9,39 @@ type AddedProps = {
 // Creates an ordered list of games for the sidebar
 export default function Gamelist( {gameName}: AddedProps ) {
 
-    const Spacing = `mb-4 mt-1 pt-2`
+    const spacing = `mb-4 mt-1 pt-2`
+
+    const priority1 = gameName.filter( g =>
+        g.priority === 1
+    );
+    
+    const priority2 = gameName.filter( g =>
+        g.priority === 2
+    );
+    
+    const priority3 = gameName.filter( g =>
+        g.priority === 3
+    );
 
     return(
         <>
-            
-            <h4 className={Spacing}>Game Priority 1</h4>
+            <h4 className={spacing}>Game Priority 1</h4>
             <div>
-                {gameName.map( g => (
+                {priority1.map( g => (
                     <Gamecard key={g.id} gameName={g}/>
                 ))}
             </div>
 
-            <h4 className={Spacing}>Game Priority 2</h4>
+            <h4 className={spacing}>Game Priority 2</h4>
             <div>
-                {gameName.map( g => (
+                {priority2.map( g => (
                     <Gamecard key={g.id} gameName={g}/>
                 ))}
             </div>                
 
-            <h4 className={Spacing}>Game Priority 3</h4>
+            <h4 className={spacing}>Game Priority 3</h4>
             <div>
-                {gameName.map( g => (
+                {priority3.map( g => (
                     <Gamecard key={g.id} gameName={g}/>
                 ))}
             </div>
