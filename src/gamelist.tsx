@@ -4,11 +4,12 @@ type AddedProps = {
     gameName: {
         id: number, priority: number, order: number, game: string
     }[],
-    deleteGame: (id:number) => void
+    deleteGame: (id: number) => void
+    updatePriority: (id:number, priority:number) => void
 }
 
 // Creates an ordered list of games for the sidebar
-export default function Gamelist( {gameName, deleteGame}: AddedProps ) {
+export default function Gamelist( {gameName, deleteGame, updatePriority}: AddedProps ) {
 
     const spacing = `mb-4 mt-1 pt-2`
 
@@ -33,6 +34,7 @@ export default function Gamelist( {gameName, deleteGame}: AddedProps ) {
                         key={g.id}
                         gameName={g}
                         deleteGame={deleteGame}
+                        updatePriority={updatePriority}
                     />
                 ))}
             </div>
@@ -44,6 +46,7 @@ export default function Gamelist( {gameName, deleteGame}: AddedProps ) {
                         key={g.id}
                         gameName={g}
                         deleteGame={deleteGame}
+                        updatePriority={updatePriority}
                     />
                 ))}
             </div>                
@@ -55,6 +58,7 @@ export default function Gamelist( {gameName, deleteGame}: AddedProps ) {
                         key={g.id}
                         gameName={g}
                         deleteGame={deleteGame}
+                        updatePriority={updatePriority}
                     />
                 ))}
             </div>

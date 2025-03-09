@@ -79,13 +79,23 @@ export default function App() {
     setGames( games.filter( game => game.id !== idToDelete) )
   }
 
+  const updatePriority = (idToUpdate:number, newPriority:number) => {
+    setGames(games.map( game => (
+      game.id !== idToUpdate ? game : {
+        ...game,
+        priority: newPriority
+      }
+    )))
+  }
+
   return(
     <div className="container-fluid row">
         <div className="col-sm-4">
           <Sidebar
-            gameName={games}
-            addGame={addGame}
-            deleteGame={deleteGame}
+          gameName={games}
+          addGame={addGame}
+          deleteGame={deleteGame}
+          updatePriority={updatePriority}
           />
         </div>
         <div className="col">

@@ -6,11 +6,17 @@ type AddedProps = {
         id: number, priority: number, order: number, game: string
     }[],
     addGame: () => void
-    deleteGame: (id:number) => void
+    deleteGame: (id: number) => void
+    updatePriority: (id:number, priority:number) => void
 }
 
 // Sidebar for the application
-export default function Sidebar( {gameName, addGame, deleteGame}: AddedProps ) {
+export default function Sidebar({
+    gameName,
+    addGame,
+    deleteGame,
+    updatePriority
+    }: AddedProps) {
     return(
         <div className="container-fluid text-center d-flex flex-column">
             
@@ -33,6 +39,7 @@ export default function Sidebar( {gameName, addGame, deleteGame}: AddedProps ) {
             <Gamelist
                 gameName={gameName}
                 deleteGame={deleteGame}
+                updatePriority={updatePriority}
             />
         </div>
     )
