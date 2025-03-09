@@ -3,6 +3,7 @@ import editIcon from "./assets/pen-solid.svg"
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
+// Properties for the props passed down from Gamelist
 type AddedProps = {
     gameName: {
         id: number,
@@ -24,6 +25,10 @@ export default function Gamecard( {gameName, deleteGame, updatePriority}: AddedP
         <div>
             {gameName.order}: {gameName.game}
             
+                {
+                    /**Dropdown button from react-bootstrap that 
+                     * updates priority*/
+                }
                 <DropdownButton
                     drop="end"
                     id="dropdown-classic-button"

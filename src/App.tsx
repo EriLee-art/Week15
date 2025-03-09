@@ -5,6 +5,7 @@ import Topbar from "./topbar"
 
 export default function App() {
 
+  // Array containing all the games
   const gameName = [
     {
       id: 0,
@@ -62,8 +63,10 @@ export default function App() {
     }
   ]
 
+  // Base state for gameName to be interacted with
   const [games, setGames] = useState(gameName);
 
+  // TEST function to add a Game to the array
   const addGame = () => {
     const newGame = {
       id: games.length ? games[games.length - 1].id + 1 : 0,
@@ -75,10 +78,12 @@ export default function App() {
     setGames( [ ...games, newGame ] )
   }
 
+  // Delete function to delete a game from the state
   const deleteGame = (idToDelete:number) => {
     setGames( games.filter( game => game.id !== idToDelete) )
   }
 
+  // Update function to change which Priority a game is set in
   const updatePriority = (idToUpdate:number, newPriority:number) => {
     setGames(games.map( game => (
       game.id !== idToUpdate ? game : {

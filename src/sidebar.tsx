@@ -1,6 +1,7 @@
 import Gamelist from "./gamelist"
 import addIcon from "./assets/plus-solid.svg"
 
+// Properties for the props passed down from App
 type AddedProps = {
     gameName: {
         id: number, priority: number, order: number, game: string
@@ -23,8 +24,9 @@ export default function Sidebar({
             <h1 className="mt-4 mb-4">My Games</h1>
             
             {
-            // Creates a button for adding a game to the game priority lists
+                // Creates a button for adding a game to the game priority lists
             }
+            
             <button
                 className="btn btn-outline-primary mb-5 mt-3"
                 onClick={addGame}>

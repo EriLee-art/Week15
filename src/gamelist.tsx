@@ -1,5 +1,6 @@
 import Gamecard from "./gamecard"
 
+// Properties for the props passed down from Sidebar
 type AddedProps = {
     gameName: {
         id: number, priority: number, order: number, game: string
@@ -13,7 +14,8 @@ export default function Gamelist( {gameName, deleteGame, updatePriority}: AddedP
 
     const spacing = `mb-4 mt-1 pt-2`
 
-    const priority1 = gameName.filter( g =>
+    // Set of functions for mapping out specific priority games
+    const priority1 = gameName.filter(g =>
         g.priority === 1
     );
     
