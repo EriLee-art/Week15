@@ -64,10 +64,29 @@ export default function App() {
 
   const [games, setGames] = useState(gameName);
 
+  const addGame = () => {
+    const newGame = {
+      id: games.length ? games[games.length - 1].id + 1 : 0,
+      priority: 1,
+      order: 4,
+      game: "The Legend of Zelda: Tears of The Kingdom"
+    }
+
+    setGames( [ ...games, newGame ] )
+  }
+
+  const deleteGame = (idToDelete:number) => {
+    setGames( games.filter( game => game.id !== idToDelete) )
+  }
+
   return(
     <div className="container-fluid row">
         <div className="col-sm-4">
-          <Sidebar gameName={games}/>
+          <Sidebar
+            gameName={games}
+            addGame={addGame}
+            deleteGame={deleteGame}
+          />
         </div>
         <div className="col">
           <div className="row">

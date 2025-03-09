@@ -3,11 +3,12 @@ import Gamecard from "./gamecard"
 type AddedProps = {
     gameName: {
         id: number, priority: number, order: number, game: string
-    }[]
+    }[],
+    deleteGame: (id:number) => void
 }
 
 // Creates an ordered list of games for the sidebar
-export default function Gamelist( {gameName}: AddedProps ) {
+export default function Gamelist( {gameName, deleteGame}: AddedProps ) {
 
     const spacing = `mb-4 mt-1 pt-2`
 
@@ -28,21 +29,33 @@ export default function Gamelist( {gameName}: AddedProps ) {
             <h4 className={spacing}>Game Priority 1</h4>
             <div>
                 {priority1.map( g => (
-                    <Gamecard key={g.id} gameName={g}/>
+                    <Gamecard
+                        key={g.id}
+                        gameName={g}
+                        deleteGame={deleteGame}
+                    />
                 ))}
             </div>
 
             <h4 className={spacing}>Game Priority 2</h4>
             <div>
                 {priority2.map( g => (
-                    <Gamecard key={g.id} gameName={g}/>
+                    <Gamecard
+                        key={g.id}
+                        gameName={g}
+                        deleteGame={deleteGame}
+                    />
                 ))}
             </div>                
 
             <h4 className={spacing}>Game Priority 3</h4>
             <div>
                 {priority3.map( g => (
-                    <Gamecard key={g.id} gameName={g}/>
+                    <Gamecard
+                        key={g.id}
+                        gameName={g}
+                        deleteGame={deleteGame}
+                    />
                 ))}
             </div>
         </>

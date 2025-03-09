@@ -4,11 +4,13 @@ import addIcon from "./assets/plus-solid.svg"
 type AddedProps = {
     gameName: {
         id: number, priority: number, order: number, game: string
-    }[]
+    }[],
+    addGame: () => void
+    deleteGame: (id:number) => void
 }
 
 // Sidebar for the application
-export default function Sidebar( {gameName}: AddedProps ) {
+export default function Sidebar( {gameName, addGame, deleteGame}: AddedProps ) {
     return(
         <div className="container-fluid text-center d-flex flex-column">
             
@@ -17,12 +19,21 @@ export default function Sidebar( {gameName}: AddedProps ) {
             {
             // Creates a button for adding a game to the game priority lists
             }
-            <button className="btn btn-outline-primary mb-5 mt-3" onClick={ () => alert(`Adding Game!`)}>
+            <button
+                className="btn btn-outline-primary mb-5 mt-3"
+                onClick={addGame}>
                 Add Game 
-                <img className="ms-1" style={{ width: "1rem" }} src={addIcon} />
+                <img
+                    className="ms-1"
+                    style={{ width: "1rem" }}
+                    src={addIcon}
+                />
             </button>
             
-            <Gamelist gameName={gameName}/>
+            <Gamelist
+                gameName={gameName}
+                deleteGame={deleteGame}
+            />
         </div>
     )
 }
